@@ -28,6 +28,7 @@ function Login() {
         <input type="email" placeholder="Email" onChange={e => setLoginInfo({ ...loginInfo, email: e.target.value })} required />
         <input type="password" placeholder="Password" onChange={e => setLoginInfo({ ...loginInfo, password: e.target.value })} required />
         <button type="submit" disabled={btnDisabled}>Login</button>
+        <a href='/forgot-password'>forgot password</a>
       </form>
     </>
   );
