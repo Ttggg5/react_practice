@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './views/Home';
-import Login from './views/Login';
-import Register from './views/Register';
-import VerifyEmail from './views/VerifyEmail';
-import ForgotPassword from './views/ForgotPassword';
-import ResetPassword from './views/ResetPassword';
+import Home from './components/Home';
+import Login from './components/Login';
+import Register from './components/Register';
+import VerifyEmail from './components/VerifyEmail';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
+import ProfileView from './components/ProfileView';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/verify" element={<VerifyEmail />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/profile/:id" element={<ProfileView />} />
       </Routes>
     </Router>
   );

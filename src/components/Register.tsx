@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import styles from './Register.module.css';
 
 function Register() {
-  const [registerInfo, setRegisterInfo] = useState({ username: '', email: '', password: '', confirmPassword: '' });
+  const [registerInfo, setRegisterInfo] = useState({ id: '', username: '', email: '', password: '', confirmPassword: '' });
   const [btnDisabled, setBtnDisabled] = useState(false);
 
   const handleRegister = async () => {
-    const res = await fetch('/register', {
+    const res = await fetch('/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(registerInfo),
@@ -27,8 +28,12 @@ function Register() {
         }
         handleRegister()
           .then(() => setBtnDisabled(false));
-      }}>
+      }} className={styles.form}>
         <h2>🔐 Register</h2>
+        <div>
+          <label>@</label>
+          <input placeholder="Id" onChange={e => setRegisterInfo({ ...registerInfo, id: e.target.value })} required />
+        </div>
         <input placeholder="Username" onChange={e => setRegisterInfo({ ...registerInfo, username: e.target.value })} required />
         <input type="email" placeholder="Email" onChange={e => setRegisterInfo({ ...registerInfo, email: e.target.value })} required />
         <input type="password" placeholder="Password" onChange={e => setRegisterInfo({ ...registerInfo, password: e.target.value })} required />
