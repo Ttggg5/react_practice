@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import UploadAvatar from './UploadAvatar';
 
 interface Profile {
   id: number;
@@ -40,6 +41,7 @@ const ProfileView: React.FC = () => {
   return (
     <div>
       <img src={`/api/profile/avatar/${id}`} width={200} alt="avatar" />
+      <UploadAvatar userId={id as string}></UploadAvatar>
       <h2>{profile.username}</h2>
       {profile.bio && <p>{profile.bio}</p>}
       {profile.location && <p>{profile.location}</p>}
